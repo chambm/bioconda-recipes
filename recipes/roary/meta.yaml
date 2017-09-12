@@ -1,17 +1,18 @@
 {% set name = "roary" %}
-{% set version = "3.8.0" %}
+{% set version = "3.9.1" %}
+{% set hash = "3e3effa18750cc4ec3d332eea603de67bffc2e1e9427db68b8816ac7326db5d0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 build:
-  number: 1
+  number: 0
 
 source:
   fn: {{ name|lower }}_{{ version }}.tar.gz
   url: http://search.cpan.org/CPAN/authors/id/A/AJ/AJPAGE/Bio-Roary-{{ version }}.tar.gz
-  md5: 33d5aef2a7d6ab8b9ec83d2cd09310af
+  sha256: {{ hash }}
 
 requirements:
   build:
