@@ -1,15 +1,16 @@
+{% set version = "0.7.6" %}
+
 package:
   name: cooler
-  version: "0.7.0"
+  version: {{ version }}
 
 source:
-  fn: cooler-0.7.0.tar.gz
-  url: https://pypi.python.org/packages/f4/43/02cdab4098031dd16f58396d6ff270c791009e199b3bbb97d395c6aeffc7/cooler-0.7.0.tar.gz
-  md5: c5eddc2b5ad1a5332e59ba3933b7a310
+  fn: cooler-{{ version }}.tar.gz
+  url: https://pypi.python.org/packages/b2/f0/050bfd5df52eddd7c671dbf840df9d07c096f7fe6a6a434e433a6535422b/cooler-{{ version }}.tar.gz
+  md5: 4f09de27e1070a86cc7f522b452e6c03
 
 build:
   number: 0
-  #noarch: python  # not supported by bioconda yet
   entry_points:
     - cooler = cooler.cli:cli
 
@@ -33,6 +34,7 @@ requirements:
     - biopython
     - pysam >0.8
     - pyfaidx
+    - pairix
 
 test:
   imports:
@@ -41,11 +43,16 @@ test:
     - cooler.contrib
 
   commands:
+    # click requires a unicode locale
     - cooler --help
 
 about:
   home: https://github.com/mirnylab/cooler
-  license: BSD3
+  license: BSD
   summary: 'Sparse binary format for genomic interaction matrices'
-  license_family: BSD
 
+extra:
+  container:
+    # click requires a unicode locale when used with Python 3
+    # extended-base generates en_US.UTF-8 locale and sets LC_ALL, LANG properly
+    extended-base: true  # [py3k]

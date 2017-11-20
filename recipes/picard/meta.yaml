@@ -1,11 +1,13 @@
+{% set version = "2.14.1" %}
+
 package:
   name: picard
-  version: "2.9.2"
+  version: {{ version }}
 
 source:
   fn: picard.jar
-  url: https://github.com/broadinstitute/picard/releases/download/2.9.2/picard.jar
-  md5: 0449279a6a89830917e8bcef3a976ef7
+  url: https://github.com/broadinstitute/picard/releases/download/{{ version }}/picard.jar
+  sha256: 40f6d83c65de7159e37d4883b3743e7e54f8e212e831fb3ab9838c2089688210
 
 build:
   number: 0
@@ -13,12 +15,12 @@ build:
 
 requirements:
   run:
-    - java-jdk >=8
+    - openjdk >=8
     - python
 
 test:
   commands:
-    - "picard 2>&1 | grep 'USAGE: PicardCommandLine'"
+    - "picard 2>&1 | grep USAGE:"
 
 about:
   home: "http://broadinstitute.github.io/picard/"
