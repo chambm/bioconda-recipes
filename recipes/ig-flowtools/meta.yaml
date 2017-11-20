@@ -1,11 +1,11 @@
 package:
   name: ig-flowtools
-  version: "2.0.0"
+  version: "2.0.2"
 
 source:
-  fn: immport-galaxy-tools.v2.0.0.tar.gz
-  md5: eabf804ac1c9f8979169096f2887a078
-  url: https://github.com/ImmPortDB/ig-flowtools/archive/immport-galaxy-tools.v2.2.0.tar.gz
+  fn: immport-galaxy-tools.v2.0.2.tar.gz
+  md5: b9726cb00c6dc4b67cfe3961bbdea20c
+  url: https://github.com/ImmPortDB/ig-flowtools/archive/immport-galaxy-tools.v2.0.2.tar.gz
 
 requirements:
   build:
